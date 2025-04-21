@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionManager.Pages.MainPage"
+             Title="Strona Główna"
+             xmlns:views="clr-namespace:CollectionManager.Views">
+
+    <Grid ColumnDefinitions="*,Auto">
+        <ScrollView Grid.Column="0">
+            <VerticalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Button 
+                        Text="Import" 
+                        Clicked="OnImport"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="12,6"
+                        Margin="10"
+                        BorderColor="#357ABD"
+                        BorderWidth="1"/>
+                    <Button 
+                        Text="Export" 
+                        Clicked="OnExport"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="12,6"
+                        Margin="10"
+                        BorderColor="#357ABD"
+                        BorderWidth="1"/>
+
+                    <Button 
+                        Text="Podsumowanie" 
+                        Clicked="OnSummary"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="12,6"
+                        Margin="10"
+                        BorderColor="#357ABD"
+                        BorderWidth="1"/>
+
+                    <Button 
+                        Text="Usuń kolekcję" 
+                        Clicked="OnDelete"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="12,6"
+                        Margin="10"
+                        BorderColor="#357ABD"
+                        BorderWidth="1"/>
+
+                </HorizontalStackLayout>
+                <Picker 
+                    x:Name="collectionPicker" 
+                    Title="Wybierz kolekcję"
+                    SelectedItem="{Binding CollectionString}"
+                    ItemsSource="{Binding CollectionsString}"
+                    SelectedIndexChanged="OnCollectionChanged"/>
+
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <views:ItemView Item="{Binding}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ScrollView Grid.Column="1" Padding="20">
+            <VerticalStackLayout>
+                <Entry 
+                    x:Name="name" 
+                    Text="{Binding Collection.Name}"
+                    MaxLength="255"
+                    Placeholder="Wpisz nazwę kolekcji"
+                    FontSize="18"
+                    ClearButtonVisibility="WhileEditing"
+                    IsTextPredictionEnabled="false"
+                    MinimumWidthRequest="255"/>
+
+                <Button 
+                    Text="Dodaj kolekcję" 
+                    Clicked="OnAddCollectionClicked"
+                    BackgroundColor="#4A90E2"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Padding="12,6"
+                    Margin="10"
+                    BorderColor="#357ABD"
+                    BorderWidth="1"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
