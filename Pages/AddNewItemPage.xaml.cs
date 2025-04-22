@@ -145,9 +145,4 @@ public partial class AddNewItemPage : ContentPage
             await DisplayAlert("B³¹d", $"Nie uda³o siê wczytaæ obrazu: {ex.Message}", "OK");
         }
     }
-
-    private void OnSwitch(object sender, ToggledEventArgs e)
-    {
-
-    }
 }

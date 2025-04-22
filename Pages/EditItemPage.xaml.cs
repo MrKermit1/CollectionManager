@@ -7,11 +7,13 @@ namespace CollectionManager.Pages;
 
 public partial class EditItemPage : ContentPage, INotifyPropertyChanged
 {
-    public Item _item = new();
-    public ObservableCollection<Collection> _collections = new();
-    public ObservableCollection<Item> _items = new();
-    public string _itemName = String.Empty;
-    public string _collectionName = String.Empty;
+    private Item _item = new();
+    private ObservableCollection<Collection> _collections = new();
+    private ObservableCollection<Item> _items = new();
+    private string _itemName = String.Empty;
+    private string _collectionName = String.Empty;
+
+    public ObservableCollection<string> CollectionsString { get; set; } = new();
     public FileManager FileManager { get; set; } = new();
     public Item Item 
     { 
@@ -42,7 +44,6 @@ public partial class EditItemPage : ContentPage, INotifyPropertyChanged
             OnPropertyChanged(nameof(Collections));
         }
     }
-    public ObservableCollection<string> CollectionsString { get; set; } = new();
     public ObservableCollection<Item> Items
     {
         get => _items;

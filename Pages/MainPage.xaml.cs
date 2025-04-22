@@ -14,6 +14,8 @@ namespace CollectionManager.Pages
 {
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
+        private string _collectionString;
+
 
         public Collection Collection { get; set; }
         public FileManager FileManager { get; set; } = new();
@@ -22,7 +24,6 @@ namespace CollectionManager.Pages
         public static MainPage Instance { get; set; }
 
         public ObservableCollection<Item> Items { get; set; } = new();
-        private string _collectionString;
         public string CollectionString
         {
             get => _collectionString;
