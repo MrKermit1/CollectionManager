@@ -5,10 +5,72 @@ namespace CollectionManager.Pages;
 
 public partial class AddNewItemPage : ContentPage
 {
-	public Item Item { get; set; }
-    public FileManager FileManager { get; set; } = new();
-    public ObservableCollection<Collection> Collections { get; set; } = new();
+    private Item _item = new();
+    private ObservableCollection<Collection> _collections = new();
+    private ObservableCollection<Item> _items = new();
+    private string _itemName = String.Empty;
+    private string _collectionName = String.Empty;
+
     public ObservableCollection<string> CollectionsString { get; set; } = new();
+    public FileManager FileManager { get; set; } = new();
+    public Item Item
+    {
+        get => _item;
+        set
+        {
+            _item = value;
+            OnPropertyChanged(nameof(Item));
+        }
+    }
+
+    public string CollectionName
+    {
+        get => _collectionName;
+        set
+        {
+            _collectionName = value;
+            OnPropertyChanged(nameof(CollectionName));
+        }
+    }
+
+    public ObservableCollection<Collection> Collections
+    {
+        get => _collections;
+        set
+        {
+            _collections = value;
+            OnPropertyChanged(nameof(Collections));
+        }
+    }
+    public ObservableCollection<Item> Items
+    {
+        get => _items;
+        set
+        {
+            _items = value;
+            OnPropertyChanged(nameof(Items));
+        }
+    }
+    private ObservableCollection<string> _itemsString = new();
+
+    public ObservableCollection<string> ItemsString
+    {
+        get => _itemsString;
+        set
+        {
+            _itemsString = value;
+            OnPropertyChanged(nameof(ItemsString));
+        }
+    }
+    public string ItemName
+    {
+        get => _itemName;
+        set
+        {
+            _itemName = value;
+            OnPropertyChanged(nameof(ItemName));
+        }
+    }
 
     public AddNewItemPage()
 	{
